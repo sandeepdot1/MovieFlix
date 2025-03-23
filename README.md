@@ -1,5 +1,4 @@
 # Movieflix
-A movie recommender system 
+A movie recommendation system 
 
-https://github.com/user-attachments/assets/b6b20705-afd0-4f99-a3eb-efc3c98eebe5
-
+https://github.com/user-attachments/assets/dcfa2c03-7b95-4a00-bf89-b607a411634b
