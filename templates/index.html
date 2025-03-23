@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block body %}
+        <nav class="navbar navbar-light bg-light">
+            <div class="container">
+                <div class="container align-content-center">
+                    <a class="navbar-brand text-primary" href="/">
+                        MovieFlix
+                    </a>
+                </div>
+        </nav>
+        <div class="container" style="height: fit-content;">
+            <div class="carousel slide carousel-fade" data-bs-ride="carousel" id="carouselExampleCaptions">
+                <ol class="carousel-indicators">
+                    <li class="active" data-bs-slide-to="0" data-bs-target="#carouselExampleCaptions">
+                    </li>
+                    <li data-bs-slide-to="1" data-bs-target="#carouselExampleCaptions">
+                    </li>
+                    <li data-bs-slide-to="2" data-bs-target="#carouselExampleCaptions">
+                    </li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img alt="..." class="d-block w-100" src="{{url_for('static',filename='images/movie3.jpeg')}}">
+                            <div class="carousel-caption d-none d-md-block text-light">
+                                <h1 align="left">
+                                    Welcome
+                                </h1>
+                                <h3 align="left">
+                                    Millions of movies to discover. Explore now
+                                </h3>
+                                <form class="d-flex position-relative w-100" action="/recommend" method="POST">
+                                    <input id="movie-search" class="form-control me-2" placeholder="Enter Movie Name" autocomplete="off" type="search" name="movie_name">
+                                    <button class="btn btn-warning btn-outline-dark" type="submit">Search</button>
+                                </form>
+
+                                <div id="suggestions" class="list-group position-absolute w-100 bg-white shadow"
+                                style="z-index: 1050; top: 60px; max-height: 200px; overflow-y: auto; display: none;">
+                                </div>
+                            </div>
+                        </img>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="10000">
+                        <img alt="..." class="d-block w-100" src="{{url_for('static',filename='images/movie1.jpeg')}}">
+                            <div class="carousel-caption d-none d-md-block text-light">
+                                <h1 align="left">
+                                    Welcome
+                                </h1>
+                                <h3 align="left">
+                                    Millions of movies to discover. Explore now
+                                </h3>
+                                <form class="d-flex position-relative w-100" action="/recommend" method="POST">
+                                    <input id="movie-search" class="form-control me-2" placeholder="Enter Movie Name" autocomplete="off" type="search" name="movie_name">
+                                    <button class="btn btn-warning btn-outline-dark" type="submit">Search</button>
+                                </form>
+                                <div id="suggestions" class="list-group position-absolute w-100 bg-white shadow"
+                                    style="z-index: 1050; top: 60px; max-height: 200px; overflow-y: auto; display: none;">
+                                </div>                              
+                            </div>
+                        </img>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="10000">
+                        <img alt="..." class="d-block w-100" src="{{url_for('static',filename='images/movie2.jpeg')}}">
+                            <div class="carousel-caption d-none d-md-block text-light">
+                                <h1 align="left">
+                                    Welcome
+                                </h1>
+                                <h3 align="left">
+                                    Millions of movies to discover. Explore now
+                                </h3>
+                                <form class="d-flex position-relative w-100" action="/recommend" method="POST">
+                                    <input id="movie-search" class="form-control me-2" placeholder="Enter Movie Name" autocomplete="off" type="search" name="movie_name">
+                                    <button class="btn btn-warning btn-outline-dark" type="submit">Search</button>
+                                </form>
+                                <div id="suggestions" class="list-group position-absolute w-100 bg-white shadow"
+                                    style="z-index: 1050; top: 60px; max-height: 200px; overflow-y: auto; display: none;">
+                                </div>                                                               
+                            </div>
+                        </img>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" data-bs-slide="prev" href="#carouselExampleCaptions" role="button">
+                    <span aria-hidden="true" class="carousel-control-prev-icon">
+                    </span>
+                    <span class="visually-hidden">
+                        Previous
+                    </span>
+                </a>
+                <a class="carousel-control-next" data-bs-slide="next" href="#carouselExampleCaptions" role="button">
+                    <span aria-hidden="true" class="carousel-control-next-icon">
+                    </span>
+                    <span class="visually-hidden">
+                        Next
+                    </span>
+                </a>
+            </div>
+        </div>
+ 
+ {% endblock %}

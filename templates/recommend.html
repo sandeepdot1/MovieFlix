@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<nav class="navbar navbar-light bg-light">
+    <div class="container">
+        <div class="container align-content-center">
+            <a class="navbar-brand text-primary" href="/">
+                MovieFlix
+            </a>
+        </div>
+        <div class="container-fluid">
+            <form class="d-flex position-relative w-100" action="/recommend" method="POST">
+                <input id="movie-search" class="form-control me-2" placeholder="Enter Movie Name" autocomplete="off" type="search" name="movie_name">
+                <button class="btn btn-warning btn-outline-dark" type="submit">Search</button>
+            </form>
+            <div id="suggestions" class="list-group position-absolute w-100 bg-white shadow"
+                style="z-index: 1050; top: 60px; max-height: 200px; overflow-y: auto; display: none;">
+            </div>                                            
+        </div> 
+    </div>
+</nav>
+<section style="background: rgb(172,175,183); height: 80vh;">
+    <div class="modal-body row">
+        <div class="col-md-6 text-center">
+            <img height="500" src=" {{img_path}}" style="padding-left: 10px; padding-right: 100px; padding-bottom: 0px; padding-top: 30px;border-radius: 5px;margin-bottom: 10px;" width="550">
+            </img>
+        </div>
+        <div class="col-md-6 text-center">
+            <h2 style="color: white; text-align: center;padding-right: 100px; padding-top: 80px;margin-left: -45%">
+                {{movie_name}} ({{movie_year}}) {{language}}
+            </h2>
+            <div class="facts" style="color: white;text-align: center;padding-right: 100px; padding-top: 0px;margin-left: -85%">
+                <ul>
+                    <b>
+                        Date : {{release_date}}
+                    </b>
+                </ul>
+                <ul>
+                    <b>
+                        Duration : {{runtime}}
+                    </b>
+                </ul>
+                <ul>
+                    <b>
+                        Genre : {{genre}}
+                    </b>
+                </ul>
+                <ul>
+                    <b>
+                        Rating : {{rating}}({{vote_count}} votes)
+                    </b>
+                </ul>
+                <ul>
+                    <b>
+                        <p style="margin-left: 40%;">
+                            {{overview}}
+                        </p>
+                    </b>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <centre>
+            <h3 style="padding-bottom: 2%;">
+                Recommended For You
+            </h3>
+        </centre>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for movie in result_list %}
+            <div class="col">
+                <div class="card shadow-sm">
+                    <a href="{{ url_for('recommend', movie_name=movie['Movie_name']) }}" style="text-decoration: none; color: inherit;">
+                        <img alt="..." class="bd-placeholder-img card-img-top" height="400" src="{{ movie['Image'] }}" width="100%">
+                        <div class="card-body">
+                            <h4 class="card-text">
+                                {{ movie['Movie_name'] }} ({{ movie['Year'] }})
+                            </h4>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span style="color: greenyellow;">
+                                    {{ movie['Rating'] }}
+                                </span>
+                                <small class="text-muted">
+                                    {{ movie['Duration'] }}
+                                </small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
