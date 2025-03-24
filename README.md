@@ -37,7 +37,7 @@ Ensure you have the following dependencies installed:
 
 ---
 
-### 6. Run the Application
+## ▶️ Running the Application
 
 ```sh
 $ flask run
