@@ -35,6 +35,14 @@ Ensure you have the following dependencies installed:
    pip install -r requirements.txt
    ```
 
+4. **Create .env file**
+
+Create a `.env` file in the project root and add the env variable `TMDB_API_KEY` to access TMDB APIs
+
+```
+TMDB_API_KEY=xxxxxxxxxxxxxx
+```
+
 ---
 
 ## ▶️ Running the Application
